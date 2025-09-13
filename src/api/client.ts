@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { useAuthStore } from '@/store/auth'
 
-export const API_BASE = 'http://localhost:5000/api/'
-export const BACKEND_BASE = API_BASE.replace(/\/?api\/?$/, '')
+// export const API_BASE = 'http://localhost:5000/api/'
+export const API_BASE = 'https://twitter-scheduler-backend.onrender.com'
+export const BACKEND_BASE = API_BASE
+export const API_DOCS = API_BASE.replace(/\/?api\/?$/, '')
 
 export const client = axios.create({ baseURL: API_BASE })
 

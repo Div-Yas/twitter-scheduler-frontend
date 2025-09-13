@@ -13,6 +13,7 @@ import OAuthCallback from './pages/OAuthCallback'
 import { useAuthStore } from './store/auth'
 import { useUiStore } from './store/ui'
 import { SettingsAccessibility } from '@mui/icons-material';
+import { BACKEND_BASE } from './api/client';
 
 const Protected = ({ children }: { children: JSX.Element }) => {
   const token = useAuthStore(s => s.token)
@@ -43,7 +44,7 @@ export default function App() {
           <Button color="inherit" component={Link} to="/">Dashboard</Button>
           <Button color="inherit" component={Link} to="/tweets">Tweets</Button>
           <Button color="inherit" component={Link} to="/scheduler">Scheduler</Button>
-          <Button color="inherit" href="https://twitter-scheduler-backend.onrender.com/api/docs" target="_blank">API Docs</Button>
+          <Button color="inherit" href={`${BACKEND_BASE}/api/docs`} target="_blank">API Docs</Button>
           <Button color="inherit"
             onClick={e => setAnchorEl(e.currentTarget)}
             aria-controls={open ? 'settings-menu' : undefined}

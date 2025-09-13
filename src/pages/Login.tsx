@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import { Box, Button, Card, CardContent, Stack, TextField, Typography, Link } from '@mui/material'
 import { z } from 'zod'
-import { client, BACKEND_BASE } from '@/api/client'
+import { client, BACKEND_BASE, API_DOCS } from '@/api/client'
 import { useAuthStore } from '@/store/auth'
 
 const schema = z.object({ email: z.string().email(), password: z.string().min(6) })
@@ -37,7 +37,7 @@ export default function Login() {
   }
 
   const redirect = `${window.location.origin}/oauth/callback`
-  const googleUrl = `${BACKEND_BASE}/api/auth/google?redirect=${encodeURIComponent(redirect)}`
+  const googleUrl = `${API_DOCS}/api/auth/google?redirect=${encodeURIComponent(redirect)}`
 
   return (
     <Box maxWidth={420} mx="auto" mt={6}>

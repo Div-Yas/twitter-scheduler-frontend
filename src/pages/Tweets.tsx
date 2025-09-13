@@ -73,7 +73,7 @@ const TweetCard = ({ tweet, onDelete, onSimulatePost }: { tweet: Tweet; onDelete
               position: 'relative'
             }}>
               <img
-                src={`http://localhost:5000${url}`}
+                src={`${BACKEND_BASE}${url}`}
                 alt="tweet media"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
