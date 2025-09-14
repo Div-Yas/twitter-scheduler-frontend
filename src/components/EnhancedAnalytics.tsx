@@ -408,13 +408,13 @@ const ContentInsights = ({ tweets }: { tweets: Tweet[] }) => {
 export default function EnhancedAnalytics() {
   const { data: analytics, isLoading: analyticsLoading } = useQuery({
     queryKey: ['analytics'],
-    queryFn: async () => (await client.get('/analytics')).data.data as AnalyticsData,
+    queryFn: async () => (await client.get('/api/analytics')).data.data as AnalyticsData,
     refetchInterval: 30000
   })
 
   const { data: tweets, isLoading: tweetsLoading } = useQuery({
     queryKey: ['tweets'],
-    queryFn: async () => (await client.get('/tweets')).data.data as Tweet[]
+    queryFn: async () => (await client.get('/api/tweets')).data.data as Tweet[]
   })
 
   if (analyticsLoading || tweetsLoading) {

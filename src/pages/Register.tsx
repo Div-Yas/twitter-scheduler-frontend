@@ -25,7 +25,7 @@ export default function Register() {
     }
     setLoading(true)
     try {
-      const res = await client.post('/auth/register', { email, password, name })
+      const res = await client.post('/api/auth/register', { email, password, name })
       const { token, _id, email: em, name: nm } = res.data.data
       setAuth({ token, user: { _id, email: em } })
       navigate('/')

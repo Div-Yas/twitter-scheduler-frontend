@@ -206,12 +206,12 @@ export default function Calendar() {
 
   const { data: tweets, isLoading } = useQuery({
     queryKey: ['tweets'],
-    queryFn: async () => (await client.get('/tweets')).data.data as Tweet[]
+    queryFn: async () => (await client.get('/api/tweets')).data.data as Tweet[]
   })
 
   const updateTweetMutation = useMutation({
     mutationFn: async ({ id, scheduledAt }: { id: string; scheduledAt: string }) => {
-      return client.put(`/tweets/${id}`, { scheduledAt })
+      return client.put(`/api/tweets/${id}`, { scheduledAt })
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tweets'] })
@@ -222,7 +222,7 @@ export default function Calendar() {
 
   const deleteTweetMutation = useMutation({
     mutationFn: async (id: string) => {
-      return client.delete(`/tweets/${id}`)
+      return client.delete(`/api/tweets/${id}`)
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tweets'] })

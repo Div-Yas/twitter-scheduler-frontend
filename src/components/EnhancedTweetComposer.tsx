@@ -177,7 +177,7 @@ const ContentSuggestions = ({
     
     setLoading(true)
     try {
-      const response = await client.post('/ai/suggest', { topic })
+      const response = await client.post('/api/ai/suggest', { topic })
       setSuggestions(response.data.data.suggestions || [])
       setDialogOpen(true)
     } catch (error) {
@@ -284,7 +284,7 @@ const OptimalTiming = () => {
   const getOptimalTimes = useCallback(async () => {
     setLoading(true)
     try {
-      const response = await client.get('/schedule/recommend')
+      const response = await client.get('/api/schedule/recommend')
       setRecommendedTimes(response.data.data.times || [])
     } catch (error) {
       console.error('Error getting optimal times:', error)
@@ -336,7 +336,7 @@ export default function EnhancedTweetComposer() {
 
   const createTweetMutation = useMutation({
     mutationFn: async (tweetData: any) => {
-      return client.post('/tweets', tweetData)
+      return client.post('/api/tweets', tweetData)
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tweets'] })
@@ -352,7 +352,7 @@ export default function EnhancedTweetComposer() {
     if (!files || files.length === 0) return
     const form = new FormData()
     Array.from(files).slice(0, 4).forEach(f => form.append('media', f))
-    const res = await client.post('/upload', form, { headers: { 'Content-Type': 'multipart/form-data' } })
+    const res = await client.post('/api/upload', form, { headers: { 'Content-Type': 'multipart/form-data' } })
     setMediaUrls(prev => [...prev, ...(res.data.data.urls as string[])])
   }
 

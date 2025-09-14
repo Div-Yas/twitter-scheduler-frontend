@@ -8,7 +8,7 @@ export default function Settings() {
   const save = async () => {
     setMsg('')
     try {
-      await client.put('/users/settings', { timeZone })
+      await client.put('/api/users/settings', { timeZone })
       setMsg('Saved')
     } catch (e: any) {
       setMsg(e?.response?.data?.message || 'Failed')

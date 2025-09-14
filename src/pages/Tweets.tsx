@@ -137,7 +137,7 @@ export default function Tweets() {
   
   const { data: tweets, isLoading, refetch, error } = useQuery({ 
     queryKey: ['tweets'], 
-    queryFn: async () => (await client.get('/tweets')).data.data as Tweet[]
+    queryFn: async () => (await client.get('/api/tweets')).data.data as Tweet[]
   })
 
   useEffect(() => {
@@ -149,12 +149,12 @@ export default function Tweets() {
   }, [qc])
 
   const handleDelete = async (id: string) => { 
-    await client.delete(`/tweets/${id}`)
+    await client.delete(`/api/tweets/${id}`)
     await refetch() 
   }
 
   const handleSimulatePost = async (id: string) => {
-    await client.post(`/tweets/${id}/simulate`)
+    await client.post(`/api/tweets/${id}/simulate`)
     await refetch()
   }
 
