@@ -24,7 +24,7 @@ export default function Login() {
     }
     setLoading(true)
     try {
-      const res = await client.post('/auth/login', { email, password })
+      const res = await client.post('/api/auth/login', { email, password })
       const { token, _id, email: em, name } = res.data.data
       console.log(res.data.data);
       setAuth({ token, user: { _id, email: em, name } })
