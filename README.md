@@ -1,6 +1,6 @@
 # Twitter Scheduler Frontend (React + TS)
 
-Minimal assessment frontend wired to the deployed backend.
+A modern dashboard for scheduling and analyzing Twitter posts, featuring AI-powered content suggestions, calendar UI, and real-time engagement tracking.
 
 API base: https://twitter-scheduler-backend.onrender.com/api
 
@@ -25,13 +25,15 @@ npm run dev
 No env required; API base is hardcoded in `src/api/client.ts`.
 
 ## Features
-- Auth: email/password login & register; Google link to backend
-- Dashboard: totals and simple chart
-- Tweets: create (280 chars), upload via backend, list & delete
-- Scheduler: recommendations fetch
-- Analytics: performance chart
-- Settings: set timezone
-- Realtime: updates via Socket.IO for tweet events
+- **Authentication:** Email/password login & register, Google OAuth via backend
+- **Dashboard:** Totals and performance charts
+- **Tweets:** Create (280 chars), upload media, list & delete
+- **Scheduler:** Fetch posting recommendations
+- **Analytics:** Performance chart and scoring
+- **Settings:** Set timezone
+- **Realtime:** Updates via Socket.IO for tweet events
+- **Content Calendar:** Visual calendar UI for scheduled and posted tweets, with drag-and-drop scheduling
+- **AI Suggestions:** Generate tweet ideas and hashtag recommendations based on trending topics and content analysis
 
 ## Notes
 - JWT is stored in localStorage for demo simplicity.
